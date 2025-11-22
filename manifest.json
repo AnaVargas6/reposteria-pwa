@@ -1,0 +1,20 @@
+{
+  "name": "Repostería Delicias",
+  "short_name": "Repostería",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#fff8f0",
+  "theme_color": "#ff7b54",
+  "icons": [
+    {
+      "src": "images/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

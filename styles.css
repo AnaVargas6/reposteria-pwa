@@ -1,0 +1,114 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background: #fff8f0;
+  color: #333;
+}
+
+header {
+  background: #ff7b54;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+}
+header h1 { margin: 0; font-size: 2.5rem; }
+header p { margin-top: 10px; font-size: 1.2rem; }
+
+h2 { text-align: center; color: #ff7b54; margin: 30px 0 20px 0; }
+
+.productos .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  transition: transform 0.2s;
+}
+.card:hover { transform: scale(1.05); }
+.card img { width: 100%; border-radius: 12px; height: 180px; object-fit: cover; }
+.card h3 { margin: 10px 0; color: #ff7b54; }
+.card p { margin: 5px 0; }
+
+.ingredientes { padding: 20px; text-align: center; }
+.ingredientes ul { list-style: none; padding: 0; font-size: 1.1rem; }
+.ingredientes li { margin: 8px 0; }
+
+footer { background: #ff7b54; color: white; text-align: center; padding: 15px; margin-top: 20px; }
+
+#panel-btn {
+  background-color: white;
+  color: #ff7b54;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+#panel-btn:hover {
+  background-color: #fff8f0;
+  color: white;
+  border-color: #fff8f0;
+}
+
+.panel {
+  padding: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.panel h2 {
+  text-align: center;
+  color: #ff7b54;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+#agregar-btn {
+  display: block;
+  margin: auto;
+  background-color: #ff7b54;
+  color: white;
+  font-weight: bold;
+}
+
+.notificacion {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #4CAF50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
+.notificacion.error { background: #f44336; }

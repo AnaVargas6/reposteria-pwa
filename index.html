@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Repostería Delicias</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+  <div id="main-content">
+    <header>
+      <h1>Repostería Delicias</h1>
+      <p>Bienvenido a nuestra colección de postres y sus ingredientes</p>
+      <div class="botones-header" style="display:flex; gap:8px; flex-wrap:wrap;">
+        <button onclick="irLogin()">Ir a Login</button>
+        <!-- 🔔 El botón DEBE ir en el body -->
+        <button onclick="window.activarNotificaciones?.()">🔔 Permitir notificaciones</button>
+      </div>
+    </header>
+
+    <section class="productos">
+      <h2>Nuestros Postres</h2>
+      <div class="grid"></div>
+    </section>
+
+    <section class="ingredientes">
+      <h2>Ingredientes Disponibles</h2>
+      <ul id="listaIngredientes"></ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Repostería Delicias | Todos los derechos reservados</p>
+    </footer>
+  </div>
+
+  <script>
+    function irLogin() { location.href = "admin/login.html"; }
+
+    function cargarProductos() {
+      const productos = JSON.parse(localStorage.getItem("productos")) || [];
+      const grid = document.querySelector(".productos .grid");
+      grid.innerHTML = "";
+      productos.forEach(p => {
+        const c = document.createElement("div");
+        c.className = "card";
+        c.innerHTML = `
+          <img src="${p.imagen || 'images/pastel_chocolate.jpg'}" alt="${p.nombre || 'Postre'}">
+          <h3>${p.nombre || 'Producto'}</h3>
+          <p><strong>Precio:</strong> $${(p.precio ?? 0).toFixed(2)}</p>
+          <p><strong>Ingredientes:</strong> ${p.ingredientes || '-'}</p>
+        `;
+        grid.appendChild(c);
+      });
+    }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js')
+        .then(r => console.log('SW registrado correctamente', r))
+        .catch(e => console.log('Error al registrar SW', e));
+    }
+
+    addEventListener('load', cargarProductos);
+  </script>
+
+  <!-- ✅ Cargar el módulo que pide permiso y guarda el token -->
+  <!-- al final del body -->
+<script type="module" src="js/fcm.js"></script>
+</body>
+</html>
